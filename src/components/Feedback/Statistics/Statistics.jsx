@@ -1,0 +1,48 @@
+import PropTypes from 'prop-types';
+import {
+  Statistics__title,
+  Statistics__list,
+  Statistics__item,
+  Statistics__text,
+} from './Statistics.styled';
+
+export const Statistics = ({
+  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage,
+}) => {
+  return (
+    <>
+      <Statistics__title>Statistics</Statistics__title>
+      <Statistics__list>
+        <Statistics__item>
+          <Statistics__text>Good: {good}</Statistics__text>
+        </Statistics__item>
+        <Statistics__item>
+          <Statistics__text>Neutral: {neutral}</Statistics__text>
+        </Statistics__item>
+        <Statistics__item>
+          <Statistics__text>Bad: {bad}</Statistics__text>
+        </Statistics__item>
+        <Statistics__item>
+          <Statistics__text>Total: {total}</Statistics__text>
+        </Statistics__item>
+        <Statistics__item>
+          <Statistics__text>
+            Positive feedback: {positivePercentage}
+          </Statistics__text>
+        </Statistics__item>
+      </Statistics__list>
+    </>
+  );
+};
+
+Statistics.propTypes = {
+  good: PropTypes.number,
+  neutral: PropTypes.number,
+  bad: PropTypes.number,
+  total: PropTypes.number,
+  positivePercentage: PropTypes.string,
+};
