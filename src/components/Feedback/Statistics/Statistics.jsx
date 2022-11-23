@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import {
-  Statistics__title,
-  Statistics__list,
-  Statistics__item,
-  Statistics__text,
+  StatisticsTitle,
+  StatisticsList,
+  StatisticsItem,
+  StatisticsText,
 } from './Statistics.styled';
 
 export const Statistics = ({
@@ -15,26 +15,28 @@ export const Statistics = ({
 }) => {
   return (
     <>
-      <Statistics__title>Statistics</Statistics__title>
-      <Statistics__list good={good} neutral={neutral} bad={bad}>
-        <Statistics__item>
-          <Statistics__text>Good: {good}</Statistics__text>
-        </Statistics__item>
-        <Statistics__item>
-          <Statistics__text>Neutral: {neutral}</Statistics__text>
-        </Statistics__item>
-        <Statistics__item>
-          <Statistics__text>Bad: {bad}</Statistics__text>
-        </Statistics__item>
-        <Statistics__item>
-          <Statistics__text>Total: {total}</Statistics__text>
-        </Statistics__item>
-        <Statistics__item>
-          <Statistics__text>
-            Positive feedback: {positivePercentage}
-          </Statistics__text>
-        </Statistics__item>
-      </Statistics__list>
+      <StatisticsTitle>Statistics</StatisticsTitle>
+      {(good > 0 || neutral > 0 || bad > 0) && (
+        <StatisticsList>
+          <StatisticsItem>
+            <StatisticsText>Good: {good}</StatisticsText>
+          </StatisticsItem>
+          <StatisticsItem>
+            <StatisticsText>Neutral: {neutral}</StatisticsText>
+          </StatisticsItem>
+          <StatisticsItem>
+            <StatisticsText>Bad: {bad}</StatisticsText>
+          </StatisticsItem>
+          <StatisticsItem>
+            <StatisticsText>Total: {total}</StatisticsText>
+          </StatisticsItem>
+          <StatisticsItem>
+            <StatisticsText>
+              Positive feedback: {positivePercentage}
+            </StatisticsText>
+          </StatisticsItem>
+        </StatisticsList>
+      )}
     </>
   );
 };

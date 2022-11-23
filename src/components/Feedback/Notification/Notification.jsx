@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import { Notification__text } from './Notification.styled';
+import { NotificationText } from './Notification.styled';
 
 export const Notification = ({ message, good, neutral, bad }) => {
   return (
     <>
-      <Notification__text good={good} neutral={neutral} bad={bad}>
-        {message}
-      </Notification__text>
+      {good === 0 && neutral === 0 && bad === 0 && (
+        <NotificationText>{message}</NotificationText>
+      )}
     </>
   );
 };
