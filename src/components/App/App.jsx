@@ -14,9 +14,9 @@ export class App extends React.Component {
   };
 
   static propTypes = {
-    initialGood: PropTypes.number,
-    initialNeutral: PropTypes.number,
-    initialBad: PropTypes.number,
+    initialGood: PropTypes.number.isRequired,
+    initialNeutral: PropTypes.number.isRequired,
+    initialBad: PropTypes.number.isRequired,
   };
 
   state = {
@@ -84,8 +84,12 @@ export class App extends React.Component {
             )}
           />
         </Section>
-        {this.state}
-        <Notification message="There is no feedback" />
+        <Notification
+          message="There is no feedback"
+          good={this.state.good}
+          neutral={this.state.neutral}
+          bad={this.state.bad}
+        />
       </Container>
     );
   }

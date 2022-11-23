@@ -18,6 +18,14 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 };
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.objectOf(PropTypes.string),
-  onLeaveFeedback: PropTypes.objectOf(PropTypes.func),
+  options: PropTypes.shape({
+    good: PropTypes.string.isRequired,
+    neutral: PropTypes.string.isRequired,
+    bad: PropTypes.string.isRequired,
+  }),
+  onLeaveFeedback: PropTypes.shape({
+    good: PropTypes.func.isRequired,
+    neutral: PropTypes.func.isRequired,
+    bad: PropTypes.func.isRequired,
+  }),
 };
